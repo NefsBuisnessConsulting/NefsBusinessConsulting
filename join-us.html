@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Nefs Business Consulting</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+            color: #222;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .navbar {
+            background: #35424a;
+            box-shadow: 0 2px 8px rgba(53,66,74,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+            position: relative;
+        }
+        .navbar .logo img {
+            height: 64px;
+            border-radius: 8px;
+        }
+        .navbar nav {
+            display: flex;
+            align-items: center;
+        }
+        .navbar nav ul {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .navbar nav a.active, .navbar nav a:hover {
+            background: #e8491d;
+            color: #fff;
+        }
+        .navbar .cta-btn {
+            background: #e8491d;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 24px;
+            font-weight: 600;
+            margin-left: 16px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .navbar .cta-btn:hover {
+            background: #fff;
+            color: #e8491d;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 16px;
+            z-index: 300;
+            padding: 0;
+        }
+        .hamburger span {
+            display: block;
+            width: 32px;
+            height: 4px;
+            background: #fff;
+            margin: 6px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        @media (max-width: 900px) {
+            .container {
+                max-width: 98vw;
+                padding: 0 8px;
+            }
+            .navbar .logo img {
+                height: 54px;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar nav {
+                position: fixed;
+                top: 0;
+                right: -260px;
+                height: 100vh;
+                width: 240px;
+                background: #2a1b2d;
+                box-shadow: -2px 0 16px rgba(53,66,74,0.13);
+                border-radius: 0 0 0 18px;
+                flex-direction: column;
+                align-items: flex-start;
+                display: flex;
+                padding-top: 32px;
+                transition: right 0.3s cubic-bezier(.4,0,.2,1);
+                z-index: 250;
+            }
+            .navbar nav.open {
+                right: 0;
+            }
+            .navbar nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            .navbar nav li {
+                width: 100%;
+            }
+            .navbar nav a {
+                display: block;
+                width: 100%;
+                padding: 18px 24px;
+                border-radius: 0;
+                border-bottom: 1px solid #3c2a3e;
+                font-size: 1.1em;
+            }
+            .navbar .cta-btn {
+                margin: 18px 0 0 18px;
+                width: 85%;
+                align-self: flex-start;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .close-nav {
+                display: block;
+                position: absolute;
+                top: 12px;
+                right: 18px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2em;
+                cursor: pointer;
+                z-index: 400;
+                padding: 0;
+                line-height: 1;
+            }
+        }
+        @media (min-width: 701px) {
+            .close-nav {
+                display: none !important;
+            }
+        }
+        @media (max-width: 400px) {
+            .navbar .logo img {
+                height: 38px;
+            }
+        }
+        .hero {
+            background: linear-gradient(120deg, #35424a 60%, #e8491d 100%);
+            color: #fff;
+            padding: 60px 0 40px 0;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 24px rgba(53,66,74,0.08);
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 24px;
+        }
+        .join-section {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(53,66,74,0.07);
+            padding: 32px 24px;
+            margin: 32px 0;
+            animation: fadeIn 1s;
+        }
+        .join-section h3 {
+            color: #e8491d;
+            margin-top: 0;
+        }
+        .join-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            background: #f8fafc;
+            padding: 32px 24px;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(53,66,74,0.07);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .join-form label {
+            font-weight: 600;
+        }
+        .join-form input,
+        .join-form textarea {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .join-form button {
+            width: fit-content;
+        }
+        .success-message {
+            color: #2e7d32;
+            background: #eafaf1;
+            border: 1px solid #b2dfdb;
+            border-radius: 8px;
+            padding: 12px 18px;
+            margin-bottom: 18px;
+            display: none;
+        }
+        .footer-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 0;
+        }
+        footer {
+            background: #35424a;
+            color: #fff;
+            border-radius: 30px 30px 0 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="logo" style="display:flex;align-items:center;">
+                <a href="index.html">
+                    <img src="logo.png" alt="Nefs Business Consulting Logo">
+                </a>
+                <span style="color:#fff;font-size:1.3em;font-weight:700;margin-left:12px;letter-spacing:1px;line-height:1;">
+                    <span style="color:#e8491d;">Nefs</span> Business Consulting
+                </span>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <button class="close-nav" id="closeNav" aria-label="Close navigation">&times;</button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="join-us.html">Join Us</a></li>
+                </ul>
+                <a href="contact.html" class="cta-btn">Request Consultation</a>
+            </nav>
+        </div>
+    </div>
+    <main>
+        <section class="hero fade-in">
+            <div class="container">
+                <h2>Join <span style="color:#e8491d;">Nefs</span> Business Consulting</h2>
+                <p>Grow your career with a team that values expertise, innovation, and integrity.</p>
+            </div>
+        </section>
+        <section class="join-section fade-in">
+            <div class="container">
+                <h3>Why Work With Us?</h3>
+                <ul>
+                    <li>Collaborative and growth-oriented work environment</li>
+                    <li>Opportunities for professional development and learning</li>
+                    <li>Work with experienced Chartered Accountants and industry experts</li>
+                    <li>Competitive compensation and benefits</li>
+                    <li>Flexible work arrangements</li>
+                </ul>
+                <h3 style="margin-top:32px;">Apply Now</h3>
+                <form class="join-form" id="joinForm" enctype="multipart/form-data">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    
+
+    
+                    <small style="color:#555;">After clicking, please attach your CV in WhatsApp before sending.</small>
+
+                    <button type="button" class="btn-primary" id="whatsappApplyBtn">Send Application via WhatsApp</button>
+                </form>
+                <div class="success-message" id="successMsg" style="display:none;">Thank you for applying! We will get in touch soon.</div>
+            </div>
+        </section>
+       
+    </main>
+    <footer>
+        <div class="container footer-flex">
+            <div>
+                <p>&copy; 2025 CA Consultancy Services. All rights reserved.</p>
+            </div>
+            <div>
+                <p>Email: <a href="mailto:camohammednihaleppichyassociat@gmail.com" style="color:#fff;text-decoration:underline;">camohammednihaleppichyassociat@gmail.com</a> | Phone: <a href="tel:+91 94475 11079" style="color:#fff;text-decoration:underline;">+91 94475 11079</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init("ie6OBCnWB9VAaOrjX");
+    })();
+
+ 
+
+    document.getElementById('whatsappApplyBtn').addEventListener('click', function() {
+        const name = document.getElementById('name').value.trim();
+        
+        // WhatsApp does not support file upload via link, so instruct user to attach CV manually
+        if (!name) {
+            alert('Please fill in your name and email.');
+            return;
+        }
+        const message = `Hello, I would like to apply for a position at Nefs Business Consulting.%0A%0AName: ${encodeURIComponent(name)}%0A(CV attached)`;
+        window.open(`https://wa.me/919447511079?text=${message}`, '_blank');
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    const closeNav = document.getElementById('closeNav');
+
+    // Open nav on hamburger click
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        hamburger.classList.toggle('open');
+    });
+
+    // Close nav on close button click
+    closeNav.addEventListener('click', () => {
+        nav.classList.remove('open');
+        hamburger.classList.remove('open');
+    });
+
+    // Optional: Close nav when clicking a link
+    document.querySelectorAll('#mainNav a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            hamburger.classList.remove('open');
+        });
+    });
+    </script>
+</body>
+</html>

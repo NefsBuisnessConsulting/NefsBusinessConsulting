@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CA Consultancy</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+            color: #222;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .navbar {
+            background: #35424a;
+            box-shadow: 0 2px 8px rgba(53,66,74,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+            position: relative;
+        }
+        .navbar .logo img {
+            height: 64px;
+            border-radius: 8px;
+        }
+        .navbar nav {
+            display: flex;
+            align-items: center;
+        }
+        .navbar nav ul {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .navbar nav a.active, .navbar nav a:hover {
+            background: #e8491d;
+            color: #fff;
+        }
+        .navbar .cta-btn {
+            background: #e8491d;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 24px;
+            font-weight: 600;
+            margin-left: 16px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .navbar .cta-btn:hover {
+            background: #fff;
+            color: #e8491d;
+        }
+        .hero {
+            background: linear-gradient(120deg, #35424a 60%, #e8491d 100%);
+            color: #fff;
+            padding: 60px 0 40px 0;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 24px rgba(53,66,74,0.08);
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 24px;
+        }
+        .about-section {
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(53,66,74,0.07);
+            padding: 32px 24px;
+            margin: 32px 0;
+            animation: fadeIn 1s;
+        }
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: -40px; left: -40px;
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, #e8491d22 60%, transparent 100%);
+            z-index: 0;
+        }
+        .about-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .team-member {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 1px 6px rgba(53,66,74,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .team-member:hover {
+            transform: translateY(-8px) scale(1.04) rotate(-2deg);
+            box-shadow: 0 8px 32px rgba(53,66,74,0.13);
+            background: linear-gradient(120deg, #f8fafc 60%, #e0e7ef 100%);
+        }
+        .team-member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            object-fit: cover;
+        }
+        .why-us ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            list-style: none;
+            padding: 0;
+            margin: 24px 0 0 0;
+        }
+        .why-us li {
+            background: #f3f6fa;
+            border-left: 4px solid #e8491d;
+            padding: 14px 18px;
+            border-radius: 8px;
+            flex: 1 1 220px;
+            font-weight: 500;
+        }
+        .contact-cta {
+            text-align: center;
+            margin: 48px 0 0 0;
+        }
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1em;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(53,66,74,0.08);
+        }
+        .btn-primary {
+            background: #e8491d;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #35424a;
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #e8491d;
+            border: 2px solid #e8491d;
+        }
+        .btn-secondary:hover {
+            background: #e8491d;
+            color: #fff;
+        }
+        .footer-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 0;
+        }
+        footer {
+            background: #35424a;
+            color: #fff;
+            border-radius: 30px 30px 0 0;
+            margin-top: 40px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 900px) {
+            .container {
+                max-width: 98vw;
+                padding: 0 8px;
+            }
+            .navbar .logo img {
+                height: 54px;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar nav {
+                position: fixed;
+                top: 0;
+                right: -260px;
+                height: 100vh;
+                width: 240px;
+                background: #2a1b2d;
+                box-shadow: -2px 0 16px rgba(53,66,74,0.13);
+                border-radius: 0 0 0 18px;
+                flex-direction: column;
+                align-items: flex-start;
+                display: flex;
+                padding-top: 32px;
+                transition: right 0.3s cubic-bezier(.4,0,.2,1);
+                z-index: 250;
+            }
+            .navbar nav.open {
+                right: 0;
+            }
+            .navbar nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            .navbar nav li {
+                width: 100%;
+            }
+            .navbar nav a {
+                display: block;
+                width: 100%;
+                padding: 18px 24px;
+                border-radius: 0;
+                border-bottom: 1px solid #3c2a3e;
+                font-size: 1.1em;
+            }
+            .navbar .cta-btn {
+                margin: 18px 0 0 18px;
+                width: 85%;
+                align-self: flex-start;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .close-nav {
+                display: block;
+                position: absolute;
+                top: 12px;
+                right: 18px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2em;
+                cursor: pointer;
+                z-index: 400;
+                padding: 0;
+                line-height: 1;
+            }
+        }
+        @media (min-width: 701px) {
+            .close-nav {
+                display: none !important;
+            }
+        }
+        @media (max-width: 400px) {
+            .navbar .logo img {
+                height: 38px;
+            }
+        }
+        .highlight {
+            color: #e8491d;
+            font-weight: 700;
+            background: #fff4ee;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+        .certifications {
+            background: #f8fafc;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(53,66,74,0.07);
+            padding: 32px 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .certifications img {
+            height: 48px;
+            margin: 0 18px 12px 18px;
+            vertical-align: middle;
+            filter: grayscale(0.2) drop-shadow(0 2px 4px #e8491d22);
+            transition: filter 0.2s;
+        }
+        .certifications img:hover {
+            filter: none;
+            transform: scale(1.1) rotate(-3deg);
+        }
+        .testimonials {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(53,66,74,0.07);
+            padding: 32px 24px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .testimonial-quote {
+            position: relative;
+            padding-left: 32px;
+        }
+        .testimonial-quote::before {
+            content: "❝";
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 2em;
+            color: #e8491d;
+        }
+        .testimonial-quote::after {
+            content: "❞";
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            font-size: 2em;
+            color: #e8491d;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: #e8491d;
+        }
+        .social-links {
+            margin-top: 24px;
+            text-align: center;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #35424a;
+            font-size: 1.8em;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .social-links a:hover {
+            color: #e8491d;
+            transform: scale(1.2) rotate(-8deg);
+        }
+        /* Animated scroll-in effect */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s, transform 0.7s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Hamburger styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 16px;
+            z-index: 300;
+            padding: 0;
+        }
+        .hamburger span {
+            display: block;
+            width: 32px;
+            height: 4px;
+            background: #fff;
+            margin: 6px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        /* Mobile nav */
+        @media (max-width: 900px) {
+            .container {
+                max-width: 98vw;
+                padding: 0 8px;
+            }
+            .navbar .logo img {
+                height: 54px;
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar nav {
+                position: fixed;
+                top: 0;
+                right: -260px;
+                height: 100vh;
+                width: 240px;
+                background: #2a1b2d;
+                box-shadow: -2px 0 16px rgba(53,66,74,0.13);
+                border-radius: 0 0 0 18px;
+                flex-direction: column;
+                align-items: flex-start;
+                display: flex;
+                padding-top: 32px;
+                transition: right 0.3s cubic-bezier(.4,0,.2,1);
+                z-index: 250;
+            }
+            .navbar nav.open {
+                right: 0;
+            }
+            .navbar nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            .navbar nav li {
+                width: 100%;
+            }
+            .navbar nav a {
+                display: block;
+                width: 100%;
+                padding: 18px 24px;
+                border-radius: 0;
+                border-bottom: 1px solid #3c2a3e;
+                font-size: 1.1em;
+            }
+            .navbar .cta-btn {
+                margin: 18px 0 0 18px;
+                width: 85%;
+                align-self: flex-start;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .close-nav {
+                display: block;
+                position: absolute;
+                top: 12px;
+                right: 18px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2em;
+                cursor: pointer;
+                z-index: 400;
+                padding: 0;
+                line-height: 1;
+            }
+        }
+        @media (min-width: 701px) {
+            .close-nav {
+                display: none !important;
+            }
+        }
+        @media (max-width: 400px) {
+            .navbar .logo img {
+                height: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Place this inside <body> at the top on every page -->
+    <div class="navbar">
+        <div class="container">
+            <div class="logo" style="display:flex;align-items:center;">
+                <a href="index.html">
+                    <img src="logo.png" alt="Nefs Business consulting Logo">
+                </a>
+                  <span style="color:#fff;font-size:1.3em;font-weight:700;margin-left:12px;letter-spacing:1px;line-height:1;">
+                    <span style="color:#e8491d;">Nefs</span> Business Consulting
+                </span>
+            </div>
+            <div class="hamburger" id="hamburger" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mainNav">
+                <button class="close-nav" id="closeNav" aria-label="Close navigation">&times;</button>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="join-us.html">Join Us</a></li>
+                </ul>
+                <a href="contact.html" class="cta-btn">Request Consultation</a>
+            </nav>
+        </div>
+    </div>
+    <main>
+        <section class="hero fade-in">
+            <div class="container">
+                <h2>About <span class="highlight">Our Consultancy</span></h2>
+                <p>Empowering your business with <span class="highlight">expert financial, tax, and compliance solutions</span>.</p>
+            </div>
+        </section>
+        <section class="about-section fade-in">
+            <div class="container">
+                <h3>Our Mission</h3>
+                <p>To provide <span class="highlight">expert consultancy services</span> in GST, income tax, accounts, auditing, and business license applications, ensuring our clients achieve their financial goals with confidence.</p>
+                <h3>Our Vision</h3>
+                <p>To be the <span class="highlight">leading consultancy firm</span> recognized for our integrity, expertise, and commitment to client success.</p>
+            </div>
+        </section>
+
+        <section class="about-section fade-in">
+            <div class="container">
+                <h3>Meet Our Team</h3>
+                <div class="team-grid">
+                    <div class="team-member" onclick="showTeamDetail('anil')">
+                    
+                        <h4>MOHAMMED NIHAL E</h4>
+                        <p>Founder & Senior Partner<br>2 years in Tax & Audit</p>
+                    </div>
+                    <div class="team-member" onclick="showTeamDetail('priya')">
+                     
+                        <h4>Muhammed Midlaj T P</h4>
+                        <p>GST & Compliance Expert<br>Specialist in Business Licenses</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- Team Modal -->
+        <div id="teamModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(53,66,74,0.7);z-index:1000;align-items:center;justify-content:center;">
+            <div style="background:#fff;padding:32px 24px;border-radius:16px;max-width:400px;width:90%;position:relative;box-shadow:0 8px 32px rgba(53,66,74,0.18);animation:fadeIn 0.3s;">
+                <button onclick="closeTeamModal()" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.5em;cursor:pointer;color:#e8491d;">&times;</button>
+                <div id="teamModalContent"></div>
+            </div>
+        </div>
+        <section class="why-us fade-in">
+            <div class="container">
+                <h3 style="text-align:center;">Why Choose Us?</h3>
+                <ul>
+                    <li>Experienced Chartered Accountants & Tax Experts</li>
+                    <li>Personalized Solutions for Every Client</li>
+                    <li>Transparent Pricing & Timely Delivery</li>
+                    <li>Confidentiality & Data Security Guaranteed</li>
+                    <li>Dedicated Support for All Your Queries</li>
+                </ul>
+            </div>
+        </section>
+        <div class="social-links fade-in">
+            
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/911234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <section class="contact-cta fade-in">
+            <div class="container">
+                <h3>Ready to Work With Us?</h3>
+                <p>Contact us today for a free initial consultation and experience the difference of professional, personalized service.</p>
+                <a href="contact.html" class="btn-secondary">Contact Us</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-flex">
+            <div>
+                <p>&copy; 2025 CA Consultancy Services. All rights reserved.</p>
+            </div>
+            <div>
+                <p>Email: <a href="mailto:camohammednihaleppichyassociat@gmail.com" style="color:#fff;text-decoration:underline;">camohammednihaleppichyassociat@gmail.com</a> | Phone: <a href="tel:+91 94475 11079" style="color:#fff;text-decoration:underline;">+91 94475 11079</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Team modal interactivity
+        
+        function showTeamDetail(key) {
+            const modal = document.getElementById('teamModal');
+            const content = document.getElementById('teamModalContent');
+            const t = teamDetails[key];
+            content.innerHTML = `<div style="text-align:center;">
+                <img src="${t.img}" alt="${t.name}" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;">
+                <h3 style="color:#e8491d;margin:10px 0 5px 0;">${t.name}</h3>
+                <div style="font-weight:600;">${t.role}</div>
+                <p style="margin-top:10px;">${t.desc}</p>
+            </div>`;
+            modal.style.display = 'flex';
+        }
+        function closeTeamModal() {
+            document.getElementById('teamModal').style.display = 'none';
+        }
+        document.getElementById('teamModal').addEventListener('click', function(e) {
+            if (e.target === this) closeTeamModal();
+        });
+
+        // Hamburger menu interactivity
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+        const closeNav = document.getElementById('closeNav');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        });
+        hamburger.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                nav.classList.toggle('open');
+                hamburger.classList.toggle('open');
+            }
+        });
+        closeNav.addEventListener('click', () => {
+            nav.classList.remove('open');
+            hamburger.classList.remove('open');
+        });
+        // Optional: Close nav when clicking a link (for better UX)
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                hamburger.classList.remove('open');
+            });
+        });
+
+        // Fade-in on scroll
+        function revealOnScroll() {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 60) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('DOMContentLoaded', revealOnScroll);
+    </script>
+</body>
+</html>
