@@ -596,7 +596,7 @@
         </div>
         <!-- Floating Social Buttons -->
         <div class="floating-social">
-            <a href="https://wa.me/919447511079" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             
         </div>
     </main>
@@ -606,7 +606,7 @@
                 <p>&copy; 2025 Nefs Business consulting. All rights reserved.</p>
             </div>
             <div>
-                <p>Email: <a href="mailto:nefsbusinessconsulting@gmail.com" style="color:#fff;text-decoration:underline;">nefsbusinessconsulting@gmail.com</a> | Phone: <a href="tel:+91 94475 11079" style="color:#fff;text-decoration:underline;">+91 94475 11079</a></p>
+                <p>Email: <a href="mailto:nefsbusinessconsulting@gmail.com" style="color:#fff;text-decoration:underline;">nefsbusinessconsulting@gmail.com</a> | Phone: <a href="tel:num" style="color:#fff;text-decoration:underline;">num</a></p>
             </div>
         </div>
     </footer>
@@ -771,6 +771,17 @@
                 hamburger.classList.remove('open');
             });
         });
+        // close nav when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.getElementById('mainNav');
+            const hamburger = document.getElementById('hamburger');
+            // Check if the click is outside the nav and hamburger
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('open');
+                hamburger.classList.remove('open');
+            }
+        });
+
     </script>
     <script src="assets/js/main.js"></script>
 </body>
