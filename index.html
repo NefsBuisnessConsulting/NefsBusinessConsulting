@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA Consultancy Services | GST, Income Tax, Auditing & More</title>
+    <title>Our Services - CA Consultancy</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-    <meta name="description" content="Expert CA consultancy for GST, Income Tax, Accounting, Auditing, and Business License Applications. Trusted advisors for your business growth.">
+    <meta name="description" content="Explore our comprehensive CA consultancy services: GST, Income Tax, Accounting, Auditing, and Business License Applications.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        /* Copy the same style blocks from index.html for consistency */
         body {
             font-family: 'Inter', Arial, sans-serif;
             background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
@@ -21,6 +21,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* Clean, consistent, responsive navbar */
         .navbar {
             background: #35424a;
             box-shadow: 0 2px 8px rgba(53,66,74,0.07);
@@ -39,16 +40,6 @@
         .navbar .logo img {
             height: 64px;
             border-radius: 8px;
-        }
-        @media (max-width: 900px) {
-            .navbar .logo img {
-                height: 54px;
-            }
-        }
-        @media (max-width: 400px) {
-            .navbar .logo img {
-                height: 38px;
-            }
         }
         .navbar nav {
             display: flex;
@@ -122,85 +113,6 @@
         }
         .hamburger.open span:nth-child(3) {
             transform: translateY(-10px) rotate(-45deg);
-        }
-        /* Mobile nav */
-        @media (max-width: 900px) {
-            .container {
-                max-width: 98vw;
-                padding: 0 8px;
-            }
-            .navbar .logo img {
-                height: 54px;
-            }
-        }
-        @media (max-width: 700px) {
-            .navbar nav {
-                position: fixed;
-                top: 0;
-                right: -260px;
-                height: 100vh;
-                width: 240px;
-                background: #2a1b2d;
-                box-shadow: -2px 0 16px rgba(53,66,74,0.13);
-                border-radius: 0 0 0 18px;
-                flex-direction: column;
-                align-items: flex-start;
-                display: flex;
-                padding-top: 32px;
-                transition: right 0.3s cubic-bezier(.4,0,.2,1);
-                z-index: 250;
-            }
-            .navbar nav.open {
-                right: 0;
-            }
-            .navbar nav ul {
-                flex-direction: column;
-                gap: 0;
-                width: 100%;
-            }
-            .navbar nav li {
-                width: 100%;
-            }
-            .navbar nav a {
-                display: block;
-                width: 100%;
-                padding: 18px 24px;
-                border-radius: 0;
-                border-bottom: 1px solid #3c2a3e;
-                font-size: 1.1em;
-            }
-            .navbar .cta-btn {
-                margin: 18px 0 0 18px;
-                width: 85%;
-                align-self: flex-start;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .close-nav {
-                display: block;
-                position: absolute;
-                top: 12px;
-                right: 18px;
-                background: none;
-                border: none;
-                color: #fff;
-                font-size: 2em;
-                cursor: pointer;
-                z-index: 400;
-                padding: 0;
-                line-height: 1;
-            }
-        }
-        @media (min-width: 701px) {
-            .close-nav {
-                display: none !important;
-            }
-        }
-        @media (max-width: 400px) {
-            .navbar .logo img {
-                height: 38px;
-            }
         }
         .hero {
             background: linear-gradient(120deg, #35424a 60%, #e8491d 100%);
@@ -308,7 +220,6 @@
             from { opacity: 0; transform: translateY(30px);}
             to { opacity: 1; transform: translateY(0);}
         }
-        /* Responsive */
         @media (max-width: 900px) {
             .container {
                 max-width: 98vw;
@@ -319,9 +230,6 @@
             }
         }
         @media (max-width: 700px) {
-            .navbar .container {
-                flex-direction: row;
-            }
             .navbar nav {
                 position: fixed;
                 top: 0;
@@ -390,102 +298,10 @@
                 height: 38px;
             }
         }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s, transform 0.7s;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .stats-section {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(53,66,74,0.07);
-            padding: 32px 24px;
-            margin: 32px 0;
-            display: flex;
-            justify-content: space-around;
-            gap: 24px;
-            text-align: center;
-        }
-        .stat {
-            flex: 1 1 120px;
-        }
-        .stat .stat-number {
-            font-size: 2.2em;
-            color: #e8491d;
-            font-weight: 700;
-        }
-        .testimonials-carousel {
-            background: #f8fafc;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(53,66,74,0.07);
-            padding: 32px 24px;
-            margin: 32px 0;
-            text-align: center;
-            position: relative;
-            min-height: 140px;
-        }
-        .testimonial-quote {
-            font-style: italic;
-            color: #35424a;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        .testimonial-author {
-            font-weight: 600;
-            color: #e8491d;
-        }
-        .carousel-controls {
-            margin-top: 12px;
-        }
-        .carousel-controls button {
-            background: #e8491d;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            margin: 0 8px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .carousel-controls button:hover {
-            background: #35424a;
-        }
-        .floating-social {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .floating-social a {
-            background: #e8491d;
-            color: #fff;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.7em;
-            box-shadow: 0 2px 8px rgba(53,66,74,0.13);
-            transition: background 0.2s, transform 0.2s;
-        }
-        .floating-social a:hover {
-            background: #35424a;
-            transform: scale(1.1) rotate(-8deg);
-        }
+        
     </style>
 </head>
 <body>
-    <!-- Place this inside <body> at the top on every page -->
     <div class="navbar">
         <div class="container">
             <div class="logo" style="display:flex;align-items:center;">
@@ -503,40 +319,27 @@
             </div>
             <nav id="mainNav">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html" class="{active_about}">About Us</a></li>
-                    <li><a href="services.html" class="{active_services}">Services</a></li>
-                    <li><a href="join-us.html" >Join Us</a></li>   
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html"  class="active">Services</a></li>
+                    <li><a href="join-us.html" >Join Us</a></li>
+                    
                 </ul>
                 <a href="contact.html" class="cta-btn">Request Consultation</a>
             </nav>
         </div>
     </div>
+    
     <main>
-        <section class="hero fade-in">
+        <section class="hero">
             <div class="container">
-                <h2>Welcome to <span class="highlight"><span style="color:#e8491d;">Nefs</span> Business consulting</span></h2>
-                <p>Professional Chartered Accountancy consultancy for businesses and individuals. We ensure compliance, accuracy, and growth with our expert services.</p>
-                <a href="contact.html" class="btn-primary">Request a Consultation</a>
+                <h2>Our Professional Services</h2>
+                <p>Explore our comprehensive range of CA consultancy services designed to help your business grow and stay compliant.</p>
             </div>
         </section>
-        <section class="stats-section fade-in">
-            <div class="stat">
-                <div class="stat-number" data-count="83">0</div>
-                <div>Clients Served</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" data-count="2">0</div>
-                <div>Years Experience</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" data-count="100">0</div>
-                <div>% Satisfaction</div>
-            </div>
-        </section>
-        <section class="services fade-in">
+        <section class="services">
             <div class="container">
-                <h3 style="text-align:center;">Our Core Services</h3>
+                <h3 style="text-align:center;">What We Offer</h3>
                 <div class="service-grid">
                     <div class="service-card" onclick="showServiceDetail('gst')">
                         <h4>GST Consultation</h4>
@@ -565,8 +368,7 @@
                 </div>
             </div>
         </section>
-        
-        <section class="why-us fade-in">
+        <section class="why-us">
             <div class="container">
                 <h3 style="text-align:center;">Why Choose Us?</h3>
                 <ul>
@@ -580,7 +382,7 @@
                 </ul>
             </div>
         </section>
-        <section class="contact-cta fade-in">
+        <section class="contact-cta">
             <div class="container">
                 <h3>Ready to Get Started?</h3>
                 <p>Contact us today for a free initial consultation and take the first step towards financial clarity and compliance.</p>
@@ -594,16 +396,11 @@
                 <div id="serviceModalContent"></div>
             </div>
         </div>
-        <!-- Floating Social Buttons -->
-        <div class="floating-social">
-            <a href="https://wa.me/" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            
-        </div>
     </main>
     <footer>
         <div class="container footer-flex">
             <div>
-                <p>&copy; 2025 Nefs Business consulting. All rights reserved.</p>
+                <p>&copy; 2025 CA Consultancy Services. All rights reserved.</p>
             </div>
             <div>
                 <p>Email: <a href="mailto:nefsbusinessconsulting@gmail.com" style="color:#fff;text-decoration:underline;">nefsbusinessconsulting@gmail.com</a> | Phone: <a href="tel:num" style="color:#fff;text-decoration:underline;">num</a></p>
@@ -611,66 +408,7 @@
         </div>
     </footer>
     <script>
-        // Animated counters
-        function animateCounters() {
-            document.querySelectorAll('.stat-number').forEach(el => {
-                const target = +el.getAttribute('data-count');
-                let count = 0;
-                const step = Math.ceil(target / 60);
-                function update() {
-                    count += step;
-                    if (count > target) count = target;
-                    el.textContent = count;
-                    if (count < target) requestAnimationFrame(update);
-                }
-                update();
-            });
-        }
-        // Testimonials carousel
-        const testimonials = [
-            {
-                quote: '"Excellent service and timely advice for my business GST needs!"',
-                author: '- R. Mehta, Business Owner'
-            },
-            {
-                quote: '"Their team made tax filing stress-free and easy."',
-                author: '- S. Gupta, Freelancer'
-            },
-            {
-                quote: '"Professional, knowledgeable, and always available for support."',
-                author: '- A. Kumar, Startup Founder'
-            }
-        ];
-        let testimonialIndex = 0;
-        function showTestimonial(idx) {
-            const t = testimonials[idx];
-            document.getElementById('testimonialText').innerHTML =
-                `<div class="testimonial-quote">${t.quote}</div><div class="testimonial-author">${t.author}</div>`;
-        }
-        function prevTestimonial() {
-            testimonialIndex = (testimonialIndex - 1 + testimonials.length) % testimonials.length;
-            showTestimonial(testimonialIndex);
-        }
-        function nextTestimonial() {
-            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
-            showTestimonial(testimonialIndex);
-        }
-        // Fade-in on scroll
-        function revealOnScroll() {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 60) {
-                    el.classList.add('visible');
-                }
-            });
-        }
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('DOMContentLoaded', () => {
-            revealOnScroll();
-            animateCounters();
-            showTestimonial(testimonialIndex);
-        });
-        // Modal for service details
+        // Interactive modal for service details
         const serviceDetails = {
             gst: {
                 title: "GST Consultation",
@@ -771,17 +509,6 @@
                 hamburger.classList.remove('open');
             });
         });
-        // close nav when clicking outside
-        document.addEventListener('click', (e) => {
-            const nav = document.getElementById('mainNav');
-            const hamburger = document.getElementById('hamburger');
-            // Check if the click is outside the nav and hamburger
-            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-                nav.classList.remove('open');
-                hamburger.classList.remove('open');
-            }
-        });
-
     </script>
     <script src="assets/js/main.js"></script>
 </body>
