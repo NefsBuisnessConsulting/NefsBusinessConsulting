@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', Arial, sans-serif;
@@ -110,6 +111,7 @@
         .hamburger.open span:nth-child(3) {
             transform: translateY(-10px) rotate(-45deg);
         }
+        
         @media (max-width: 900px) {
             .container {
                 max-width: 98vw;
@@ -187,7 +189,9 @@
             .navbar .logo img {
                 height: 38px;
             }
+            
         }
+        
         .hero {
             background: linear-gradient(120deg, #35424a 60%, #e8491d 100%);
             color: #fff;
@@ -264,6 +268,33 @@
             border-radius: 30px 30px 0 0;
             margin-top: 40px;
         }
+    .floating-social {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .floating-social a {
+            background: #e8491d;
+            color: #fff;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7em;
+            box-shadow: 0 2px 8px rgba(53,66,74,0.13);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .floating-social a:hover {
+            background: #35424a;
+            transform: scale(1.1) rotate(-8deg);
+        }
+        
     </style>
 </head>
 <body>
@@ -326,7 +357,10 @@
                 <div class="success-message" id="successMsg" style="display:none;">Thank you for applying! We will get in touch soon.</div>
             </div>
         </section>
-       
+       <div class="floating-social">
+            <a href="https://wa.me/919074619923" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/nefs_business_consulting?utm_source=qr&igsh=MTdsbDg3ZXh5cHMyZA=="><i class="fab fa-instagram"></i></a>
+        </div>
     </main>
     <footer>
         <div class="container footer-flex">
